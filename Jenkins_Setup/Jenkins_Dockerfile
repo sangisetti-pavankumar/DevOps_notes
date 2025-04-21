@@ -1,0 +1,11 @@
+FROM jenkins/jenkins:lts
+
+# Skip the initial setup wizard
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
+# Copy Groovy script to configure admin user
+COPY initialConfig.groovy /usr/share/jenkins/ref/init.groovy.d/initialConfig.groovy
+
+# Install plugins (optional, can be customized)
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
