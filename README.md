@@ -1,3 +1,1 @@
-#### DevOps_notesaskefiawh
-
-pavan
+#### DevOps_notes
